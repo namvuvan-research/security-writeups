@@ -7,7 +7,7 @@ Lỗ hổng DOM-based XSS được phát hiện trên extension mặc định "T
 | Field         | Detail                                                        |
 |---------------|---------------------------------------------------------------|
 | Type          | DOM-based XSS                                                 |
-| Severity      | Medium                                                        |
+| Severity | Medium (mức đánh giá trong báo cáo; chưa có CVSS vector hoặc mức do vendor xác nhận) |
 | Product       | Cốc Cốc Browser — Extension "Từ điển và Dịch" (mặc định)     |
 | Attack Vector | Trang web chứa `<textarea>` với payload → user bôi đen → XSS trigger |
 | Status        | Fixed                                                         |
@@ -70,11 +70,11 @@ File HTML sau có thể dùng để tái hiện lỗ hổng, hoặc test trực 
 
 ## Mức độ ảnh hưởng
 
-**Session Hijacking:** XSS execute trong security context của trang web nạn nhân đang truy cập. Attacker có thể truy cập `document.cookie`, `localStorage` và mọi dữ liệu nhạy cảm thuộc origin đó.
+**Hành vi đã xác minh:** JavaScript thực thi trong origin của trang chứa văn bản được chọn sau khi extension xử lý văn bản dưới dạng HTML.
 
-**Kịch bản tấn công:** Attacker tạo trang web độc hại chứa `<textarea>` với payload XSS được điền sẵn, sau đó dụ nạn nhân bôi đen text (ví dụ: "Hãy kiểm tra và chọn đoạn text bên dưới"). Vì extension được bật mặc định trên mọi bản cài Cốc Cốc, mọi người dùng Cốc Cốc đều là mục tiêu tiềm năng.
+**Giới hạn của PoC:** PoC không chứng minh việc chiếm phiên, thực thi trong origin khác hoặc quyền đặc biệt của extension. Cookie HttpOnly không thể đọc qua document.cookie. Nếu attacker đã kiểm soát trang chứa payload, cần thêm bằng chứng để xác định quyền thực thi mới mà lỗi này mang lại.
 
-**Phạm vi ảnh hưởng:** Cốc Cốc là trình duyệt phổ biến tại Việt Nam với extension "Từ điển và Dịch" được bật mặc định, khiến attack surface tiềm năng rất lớn trong cộng đồng người dùng Việt Nam.
+**Phạm vi:** Phiên bản trình duyệt và extension bị ảnh hưởng chưa được ghi lại trong báo cáo công khai; không suy rộng kết quả cho mọi bản cài đặt. Mức Medium là mức đánh giá ghi trong báo cáo, chưa có CVSS vector hoặc mức do vendor xác nhận.
 
 ## Khuyến nghị khắc phục
 
