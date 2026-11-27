@@ -7,7 +7,7 @@ A DOM-based XSS vulnerability was identified in the default "Dictionary & Transl
 | Field         | Detail                                                        |
 |---------------|---------------------------------------------------------------|
 | Type          | DOM-based XSS                                                 |
-| Severity      | Medium                                                        |
+| Severity | Medium (reported assessment; CVSS vector and vendor rating not documented) |
 | Product       | Cốc Cốc Browser — "Dictionary & Translate" Extension (default)|
 | Attack Vector | Malicious page with pre-filled `<textarea>` → user highlights text → XSS triggered |
 | Status        | Fixed                                                         |
@@ -66,15 +66,15 @@ The following HTML file can be used to reproduce the vulnerability. It can also 
 
 *Figure 1: XSS triggered when highlighting text in `<textarea>` — alert displays `document.domain` confirming execution in page context*
 
-> **Note:** The original video PoC demonstrating the full exploitation flow is no longer available. The vulnerability has been confirmed fixed by the vendor.
+> **Note:** The original video PoC demonstrating the full exploitation flow is no longer available. The report records that subsequent retesting no longer reproduced the issue; the exact fixed version is not documented.
 
 ## Impact
 
-**Session Hijacking:** The XSS executes in the security context of the webpage the victim is currently visiting. This means an attacker can access `document.cookie`, `localStorage`, and any sensitive data belonging to that origin.
+**Observed behavior:** JavaScript executed in the origin of the page containing the selected text after the extension processed that text as HTML.
 
-**Attack Scenario:** An attacker crafts a malicious webpage containing a `<textarea>` with a pre-filled XSS payload and socially engineers the victim into highlighting the text (e.g., "Please review and select the text below"). Since the extension is enabled by default on all Cốc Cốc installations, every Cốc Cốc user is a potential target.
+**Evidence limits:** The PoC does not establish session hijacking, cross-origin execution, or access to privileged extension capabilities. HttpOnly cookies are not readable through document.cookie. If the attacker already controls the page containing the payload, further evidence is needed to establish what additional execution capability the flaw provides.
 
-**Scope of Affected Users:** Cốc Cốc is a widely-used browser in Vietnam with the "Dictionary & Translate" extension enabled by default, making the potential attack surface significant within the Vietnamese user base.
+**Scope:** Affected browser and extension versions are not documented in the public report. The result should not be generalized to every installation. Medium is the recorded assessment; a CVSS vector and vendor-confirmed rating are not documented.
 
 ## Remediation
 
@@ -89,7 +89,7 @@ The following HTML file can be used to reproduce the vulnerability. It can also 
 | Dec 30, 2025    | Report sent to secure@ and hotro@ (incorrect addresses) |
 | Dec 31, 2025    | Report resent to coccoc@coccoc.com and via Facebook |
 | Dec 31, 2025    | Cốc Cốc acknowledged receipt via Facebook and forwarded to dev team |
-| Jan–Mar 2026    | Fix deployed (confirmed by retesting)              |
+| Jan–Mar 2026    | No longer reproduced in subsequent retesting (exact version not documented)              |
 | Mar 2026        | Public disclosure                                  |
 
 ## Acknowledgment
