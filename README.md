@@ -16,7 +16,7 @@ focused on web application security and AI-augmented security research.
 ## Contact
 - 📧 **Email**: vuvannam.sec@gmail.com
 - 🐦 **X/Twitter**: [@vuvannam_sec](https://x.com/vuvannam_sec)
-- 💻 **GitHub**: [@vuvannam-sec](https://github.com/vuvannam-sec)
+- 💻 **GitHub**: [@vuvannam-sec](https://github.com/namvuvan-research)
 - 💼 **LinkedIn**: [namvuvan-security](https://www.linkedin.com/in/namvuvan-security)
 
 
