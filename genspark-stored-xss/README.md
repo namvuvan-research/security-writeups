@@ -52,7 +52,7 @@ This test displays cookies accessible to JavaScript; it does not exfiltrate them
 
 ![Fake login page injected via Stored XSS](./images/phishing_poc.png)
 
-*Figure 1: Fake login page injected via Stored XSS to harvest credentials*
+*Figure 1: Illustrative fake login interface injected via stored XSS; credential collection was not demonstrated*
 
 ![DOM Source showing unsanitized img tag](./images/poc_dom_source.png)
 
@@ -66,7 +66,7 @@ This test displays cookies accessible to JavaScript; it does not exfiltrate them
 
 **Script Execution in the Application Origin:** An attacker-controlled payload runs in the affected page's origin when the shared conversation is opened. Depending on the victim's authentication state and the application's protections, this can expose accessible data or allow actions available to that browser session. Account takeover was not established by the cookie-display PoC alone.
 
-**Phishing:** The attacker can inject a fake login form that mimics Genspark's UI, tricking users into submitting their credentials.
+**Potential phishing impact:** The PoC illustrates that a fake login interface can be injected into the affected page. Actual credential collection was not demonstrated.
 
 **Exposure Through Shared Links:** The stored payload runs when a recipient opens the affected conversation link. The test demonstrates link-based delivery, not automatic self-replication or propagation.
 
