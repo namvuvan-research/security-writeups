@@ -40,7 +40,7 @@ PoC này chỉ hiển thị cookie mà JavaScript đọc được, không gửi 
 ### Kết quả
 
 ![phishing_poc](./images/phishing_poc.png)
-*Hình 1: Trang đăng nhập giả mạo được inject qua Stored XSS để đánh cắp thông tin đăng nhập*
+*Hình 1: Minh họa giao diện đăng nhập giả được chèn qua Stored XSS; chưa chứng minh thu thập thông tin đăng nhập*
 
 ![poc_dom_source](./images/poc_dom_source.png)
 *Hình 2: DevTools cho thấy thẻ `<img>` được render trực tiếp vào DOM mà không qua sanitize*
@@ -52,7 +52,7 @@ PoC này chỉ hiển thị cookie mà JavaScript đọc được, không gửi 
 
 **Thực thi script trong origin của ứng dụng:** Payload do attacker kiểm soát chạy trong origin của trang bị ảnh hưởng khi người nhận mở hội thoại. Tùy trạng thái đăng nhập và cơ chế bảo vệ, mã có thể truy cập dữ liệu được phép hoặc thực hiện hành động trong phiên đó. Chỉ riêng PoC hiển thị cookie chưa chứng minh được account takeover.
 
-**Phishing:** Attacker inject trang đăng nhập giả mạo giao diện Genspark, lừa user nhập thông tin đăng nhập.
+**Nguy cơ phishing:** PoC minh họa khả năng chèn giao diện đăng nhập giả vào trang bị ảnh hưởng; chưa chứng minh việc thu thập thông tin đăng nhập thực tế.
 
 **Ảnh hưởng qua link chia sẻ:** Payload được lưu và thực thi khi người nhận mở link hội thoại. Thử nghiệm chứng minh cách phát tán qua link, chưa chứng minh khả năng tự nhân bản hoặc tự lan truyền.
 
