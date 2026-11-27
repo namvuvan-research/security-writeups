@@ -1,5 +1,9 @@
 # Stored XSS in Genspark AI Chat via Unsanitized AI Output
 
+[Canonical published article](https://namvuvan-research.github.io/posts/genspark-stored-xss/) · [Vietnamese translation](README.vi.md)
+
+The published article is the primary reference; this repository preserves the report and supporting material.
+
 ## Summary
 A stored XSS vulnerability was identified in Genspark's AI Chat feature. A crafted prompt could cause the AI to generate malicious HTML that was rendered into the DOM without sanitization. In the proof of concept, the payload persisted and executed when another visitor opened the shared conversation. The vulnerability was reported to Genspark and subsequently fixed.
 
